@@ -13,6 +13,7 @@ public:
 private:
 	void x0();
 	void x1();
+	void x2();
 	Animation* animation;
 	GeometricObject* geometri;
 };

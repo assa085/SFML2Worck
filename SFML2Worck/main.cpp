@@ -1,5 +1,5 @@
 #pragma once
-#include "main.h"
+
 #include "Animation.h"
 #include "GeometricObject.h"
 #include "Stage.h"
@@ -21,10 +21,9 @@ int main()
                 window.close();
         }
 
-        window.clear();
-        stage.Start();
-        window.display();
+       stage.Start();
+        
     }
-
+    
     return 0;
 }

@@ -12,7 +12,7 @@ sf::RectangleShape GeometricObject::setLine(float x, float y, float size0, float
 
     return line;
 }
-sf::RectangleShape setLineRotate(float rotate, float x, float y, float size0, float size1) {
+sf::RectangleShape  GeometricObject::setLineRotate(float rotate, float x, float y, float size0, float size1) {
 	sf::RectangleShape line(sf::Vector2f(x, y));
 	line.setFillColor(sf::Color(100, 250, 50));
 	line.rotate(rotate);
@@ -20,13 +20,13 @@ sf::RectangleShape setLineRotate(float rotate, float x, float y, float size0, fl
 
 	return line;
 }
-sf::CircleShape setTriangle(float rotate, float x, float y, float size0, float size1) {
-	sf::CircleShape triangle(x, y);
-	triangle.setFillColor(sf::Color(100, 250, 50));
-	triangle.rotate(rotate);
-	triangle.setPosition(size0, size1);
+sf::CircleShape  GeometricObject::setCircle(float rotate, float x, float y, float size0, float size1) {
+	sf::CircleShape circle(x, y);
+	circle.setFillColor(sf::Color(100, 250, 50));
+	circle.rotate(rotate);
+	circle.setPosition(size0, size1);
 
-	return triangle;
+	return circle;
 }
 void GeometricObject::line(float x, float y, float size0, float size1) {
 	sf::RectangleShape line(sf::Vector2f(x, y));
@@ -42,25 +42,15 @@ void GeometricObject::lineRotate(float rotate, float x, float y, float size0, fl
 	line.setPosition(size0, size1);
 	window->draw(line);
 }
-void GeometricObject::triangle(float rotate, float x, float y, float size0, float size1) {
-	sf::CircleShape triangle(x, y);
+sf::CircleShape GeometricObject::triangle(float rotate, float x, float size0, float size1) {
+	sf::CircleShape triangle(x, 3);
 	triangle.setFillColor(sf::Color(100, 250, 50));
 	triangle.rotate(rotate);
 	triangle.setPosition(size0, size1);
-	window->draw(triangle);
+	
+	return triangle;
 }
-void GeometricObject::listAddLine(float x, float y, float size0, float size1) {
-	sf::RectangleShape line(sf::Vector2f(x, y));
-	line.setFillColor(sf::Color(100, 250, 50));
-	/*line.rotate();*/
-	line.setPosition(size0, size1);
-	listRectangleShape.push_back(line);
-}
-sf::RectangleShape GeometricObject::getInListTexture(int i) {
-	auto it = listRectangleShape.begin();
-	std::advance(it, i);
-	return *it;
-}
+
 sf::RenderWindow* GeometricObject::getWin() {
 	return this->window;
 }
